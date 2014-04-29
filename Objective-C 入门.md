@@ -109,6 +109,44 @@ myAppObject.theArray = aNewArray;
 ```objc
 @property (assign, getter=isEnabled) BOOL enabled;
 ```
-##块
+##块（这一段我目前也觉得好奇怪，还没怎么理解）
+- 本质上是一个可以在任何时刻执行的代码段
+- 可移植的匿名函数
+- 可作为方法和函数的参数
+- 可从方法或函数中返回
+- 本身具有一个已类型化的参数列表
+- 可以将块赋值给变量，然后像调用函数一样调用它。
+- ^是块的语法标记。
+看以下代码:
+
+```objc
+int multiplier = 7;
+int (^myBlock)(int) = ^(int num){ return num * multiplier;};
+int result = myBlock(4);
+```
+先看块中=左边的部分:
+- int 表示myBlock块返回int类型的值
+- ^myBlock表示myBlock是一个块，
+- (int)表示块采用一个参数，参数类型是int
+再来看=右边：
+- 以^开头表示这是一个块定义
+- (int num) 表示定义采用一个int型的参数，名字为num
+- { return num * multiplier; };是块的主体，使用参数num，返回一个int值。
+
+###块的用途
+块共享局部词法作用范围内的数据。
+
 ##协议和类别
+协议声明了一组方法，这些方法可以被任何类实现。协议方法定义了一组与对象类型无关的方法。
+
+
 ##已定义的类别和编码策略
+###重要类型
+- id
+- Class
+- SEL
+- Boolean
+###保留术语
+- self 类似this
+- super
+
