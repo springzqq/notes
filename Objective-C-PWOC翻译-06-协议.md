@@ -127,4 +127,8 @@ respondsToSelector方法使用了一个选择器(selector)，该选择器引用�
 >注意：协议中的方法声明和其他声明一样，实现中的方法名和参数类型必须和协议中的声明一致。
 
 ##Cocoa和Cocoa Touch 定义了大量的协议
+Cocoa和Cocoa Touch对象在各种不同情况下使用了大量的协议。比方说，桌面视图类(OSX下的NSTableView和IOS下的UITableView)使用了数据源对象来为自己提供必要的信息。他们定义了自己的数据源协议，使用方法和我们之前例子中的XYZPieChartViewDataSource差不多。这些桌面视图类也允许你设置一个委托对象，这个对象也必须遵守相应的NSTableViewDelegate或者UITableViewDelegate协议。“委托”用来处理用户的交互行为或者个性化显示。
+
+某些协议用来指明类之间的非结构化相似性。
+
 #为匿名而使用的协议
