@@ -73,4 +73,20 @@ OBJ-C中，使用尖括号表示遵守某一协议。上述例子声明了一个
 - (UIColor *)colorForSegmentAtIndex:(NSUInteger)segmentIndex;
 @end
 ```
+上述例子定义了三个必要方法和两个可选方法。
+
+##在运行时检查可选方法的实现
+如果一个方法在协议中定义为可选的，那么在尝试调用它之前*必须*检查对象是否实现了该方法。比方说，饼图视图必须测试区域标题方法：
+```objc
+NSString *thisSegmentTitle;
+if ([self.dataSource respondsToSelector:@selector(titleForSegmentAtIndex:)])
+{
+    thisSegmentTitle = [self.dataSource titleForSegmentAtIndex:index];
+}
+```
+respondsToSelector方法使用了一个选择器(selector)，该选择器引用了方法的标识。使用@selector()指令并指定方法名来提供正确的标识。
+
+该例子中，如果数据源实现了titleForSegmentAtIndex方法，则thisSegmentTitle取到标题，否则thisSegmentTitle仍为nil。
+>注意：本地对象变量会自动初始化为nil。
+
 
