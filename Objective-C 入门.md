@@ -109,7 +109,7 @@ myAppObject.theArray = aNewArray;
 ```objc
 @property (assign, getter=isEnabled) BOOL enabled;
 ```
-##块（这一段我目前也觉得好奇怪，还没怎么理解）
+##块 (刚开始学的时候，只要记住^意味着开始使用块了)
 - 本质上是一个可以在任何时刻执行的代码段
 - 可移植的匿名函数
 - 可作为方法和函数的参数
