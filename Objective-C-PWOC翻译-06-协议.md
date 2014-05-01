@@ -144,4 +144,15 @@ id utility = [frameworkObject anonymousUtility];
 ```
 为了使这个anonymousUtility对象有用，框架的开发者可以公开一个协议，该协议披露了它的部分方法。即使原始的类接口没有提供，也就是说类还是匿名的，但是对象仍然能够有限制的使用。如下：
 
+```objc
+id <XYZFrameworkUtility> utility = [frameworkObject anonymousUtility];
+```
+如果你正在写一个使用Core Data 框架的iOS应用程序，你很可能会使用到NSFetchResultsController类。这个类是设计来帮数据源对象提供存储数据给iOS UITableview，使其能够轻易的提供行数这类信息。
 
+如果你正在操作一个桌面视图，其内容是分成多个区域的，你也可以使用一个取结果控制器来获取相关区域的信息。NSFetchResultsController类会返回一个匿名对象，该对象遵守NSFetchedResultsSectionInfo协议，而不是返回一个特定的类，让他包含相关区域的信息。这就意味着仍然能从对象中获取你需要的信息，例如某块区域中的行数:
+```objc
+NSInteger sectionNumber = ...
+id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:sectionNumber];
+NSInteger numberOfRowsInSection = [sectionInfo numberOfObjects];
+```
+即使你不知道sectionInfo是哪个类的对象，NSFetchedResultsSectionInfo协议指明了它能对numberOfObjects消息做出反应。
