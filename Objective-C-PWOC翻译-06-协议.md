@@ -129,6 +129,13 @@ respondsToSelector方法使用了一个选择器(selector)，该选择器引用�
 ##Cocoa和Cocoa Touch 定义了大量的协议
 Cocoa和Cocoa Touch对象在各种不同情况下使用了大量的协议。比方说，桌面视图类(OSX下的NSTableView和IOS下的UITableView)使用了数据源对象来为自己提供必要的信息。他们定义了自己的数据源协议，使用方法和我们之前例子中的XYZPieChartViewDataSource差不多。这些桌面视图类也允许你设置一个委托对象，这个对象也必须遵守相应的NSTableViewDelegate或者UITableViewDelegate协议。“委托”用来处理用户的交互行为或者个性化显示。
 
-某些协议用来指明类之间的非结构化相似性。
+某些协议用来指明类之间的非结构化相似性。协议倾向于满足会被许多毫不相关的类所采用的更普遍的Cocoa或CocoaTouch通信机制，而不是满足特定的类需求。
+
+比方说，许多框架模型对象(例如像NSArray和NSDictiionary等集合类(collection class))支持NSCoding协议，这意味着他们可以对他们的属性以元数据(raw data)的方式进行编码或解码以归档或分发。NSCoding使得将整个对象图写入磁盘变得相对简单，让图中的每个对象采用了协议。
+
+一些OBJ-C 语言级的特性也依赖于协议。为了能快速枚举，比如说一个集合必须采用(adopt)NSFastEnumeration协议，正如“快速枚举是枚举集合变得更容易”一节提到的那样。除此之外，许多对象可以被复制，如“复制属性维护他们的副本”一节中描述的，使用一个有副本性质的属性。你试图复制的任何对象都必须采用NSCopying协议，否则会发生运行时错误。
 
 #为匿名而使用的协议
+协议还用于这种情况：对象的类型是不知道的，或者是需要被隐藏的。
+
+比方说，框架的开发人员
