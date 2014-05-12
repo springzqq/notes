@@ -26,6 +26,7 @@ A mask of options indicating how you want to perform the animations. For a list 
 __一组掩码选项指示出如何展示动画，具体掩码参数，参见UIViewAnimationOptions。__  
 ```c
 enum {
+   //最低10位为多选项
    UIViewAnimationOptionLayoutSubviews            = 1 <<  0,
    UIViewAnimationOptionAllowUserInteraction      = 1 <<  1,
    UIViewAnimationOptionBeginFromCurrentState     = 1 <<  2,
@@ -37,11 +38,13 @@ enum {
    UIViewAnimationOptionShowHideTransitionViews   = 1 <<  8,
    UIViewAnimationOptionOverrideInheritedOptions  = 1 <<  9,
    
+   //17,18位表示，这四个选项为单选项
    UIViewAnimationOptionCurveEaseInOut            = 0 << 16,
    UIViewAnimationOptionCurveEaseIn               = 1 << 16,
    UIViewAnimationOptionCurveEaseOut              = 2 << 16,
    UIViewAnimationOptionCurveLinear               = 3 << 16,
    
+   //21,22，23位表示，这8个选项为单选项
    UIViewAnimationOptionTransitionNone            = 0 << 20,
    UIViewAnimationOptionTransitionFlipFromLeft    = 1 << 20,
    UIViewAnimationOptionTransitionFlipFromRight   = 2 << 20,
@@ -53,38 +56,58 @@ enum {
 };
 typedef NSUInteger UIViewAnimationOptions;
 ```
+前十个选项为多选项
+
 - UIViewAnimationOptionLayoutSubviews  
 Lay out subviews at commit time so that they are animated along with their parent.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+布局子视图，使它们可以和父视图一同参与动画。
 
 - UIViewAnimationOptionAllowUserInteraction  
 Allow the user to interact with views while they are being animated.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+允许用户在动画展示时与视图交互。
 
 - UIViewAnimationOptionBeginFromCurrentState
 Start the animation from the current setting associated with an already in-flight animation. If this key is not present, any in-flight animations are allowed to finish before the new animation is started. If another animation is not in flight, this key has no effect.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+从已经在运行中的动画相关的状态设置开始运行动画。如果没有提供这个选项，那么已经在运行中的动画可以在新的动画开始前结束。如果动画开始的时候，没有其他的动画在运行，那么这个选项值没有意义。
+
 - UIViewAnimationOptionRepeat
 Repeat the animation indefinitely.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+无线循环的重复动画
+
 - UIViewAnimationOptionAutoreverse
 Run the animation backwards and forwards. Must be combined with the UIViewAnimationOptionRepeat option.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+正向和反向的运行动画，必须和UIViewAnimationOptionRepeat选项一起使用
+
 - UIViewAnimationOptionOverrideInheritedDuration
 Force the animation to use the original duration value specified when the animation was submitted. If this key is not present, the animation inherits the remaining duration of the in-flight animation, if any.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+动画提交时强制使用原始的持续时间选项。如果没有提供该选项，动画继承了正在运行的动画的剩余持续时间。(这个怎么理解)
+
 - UIViewAnimationOptionOverrideInheritedCurve
 Force the animation to use the original curve value specified when the animation was submitted. If this key is not present, the animation inherits the curve of the in-flight animation, if any.
-Available in iOS 4.0 and later.
+Available in iOS 4.0 and later.  
+当动画提交时，强制使用原始的曲线值。如果没有提供该选项，则动画继承了正在运行的动画的曲线。
 - UIViewAnimationOptionAllowAnimatedContent
 Animate the views by changing the property values dynamically and redrawing the view. If this key is not present, the views are animated using a snapshot image.
 Available in iOS 4.0 and later.
+通过动态改变视图的属性并且重绘视图来运行动画。如果没有提供该选项，视图会使用快照图像来显示。
+
 - UIViewAnimationOptionShowHideTransitionViews
 When present, this key causes views to be hidden or shown (instead of removed or added) when performing a view transition. Both views must already be present in the parent view’s hierarchy when using this key. If this key is not present, the to-view in a transition is added to, and the from-view is removed from, the parent view’s list of subviews.
 Available in iOS 4.0 and later.
+提供这个选项时，在子视图替换过程中就不再是替换，而是隐藏，在父视图的子视图列表中，不再是增加和移除，而是并存，
+
 - UIViewAnimationOptionOverrideInheritedOptions
 The option to not inherit the animation type or any options.
 Available in iOS 7.0 and later.
+不继承动画类型或选项（ios7.0新增）
+
+以下4个选项为单选项
 - UIViewAnimationOptionCurveEaseInOut
 An ease-in ease-out curve causes the animation to begin slowly, accelerate through the middle of its duration, and then slow again before completing.
 Available in iOS 4.0 and later.
@@ -94,9 +117,12 @@ Available in iOS 4.0 and later.
 - UIViewAnimationOptionCurveEaseOut
 An ease-out curve causes the animation to begin quickly, and then slow as it completes.
 Available in iOS 4.0 and later.
+
 - UIViewAnimationOptionCurveLinear
 A linear animation curve causes an animation to occur evenly over its duration.
 Available in iOS 4.0 and later.
+
+以下8个选项为单选项
 - UIViewAnimationOptionTransitionNone
 No transition is specified.
 Available in iOS 4.0 and later.
@@ -142,3 +168,6 @@ UIView.h
 UIView
 ##Sample Code	
 AirDrop Examples  UIImagePicker Video RecorderUnwindSegue
+
+##参考阅读
+Animations
