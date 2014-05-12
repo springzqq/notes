@@ -8,12 +8,12 @@
                  completion:(void (^)(BOOL finished))completion
 ```
 Animate changes to one or more views using the specified duration, delay, options, and completion handler.  
-动画展示视图的变化。使用持续时间、延时、选项和完成句柄作为参数。  
+__动画展示视图的变化。使用持续时间、延时、选项和完成句柄作为参数。__  
 This method initiates a set of animations to perform on the view. The block object in the animations parameter contains the code for animating the properties of one or more views.  
-本方法初始化了一组要在视图上展示的动画。动画参数(animations)中的块对象包含了要进行动画展示的视图属性。  
+__本方法初始化了一组要在视图上展示的动画。动画参数(animations)中的块对象包含了要进行动画展示的视图属性。__  
 During an animation, user interactions are temporarily disabled for the views being animated. (Prior to iOS 5, user interactions are disabled for the entire application.) If you want users to be able to interact with the views, include the
 UIViewAnimationOptionAllowUserInteraction constant in the options parameter.  
-在动画过程中，用户的交互行为被暂时禁止了。如果你需要让用户在此过程中与视图交互，则需要在选项(option)参数中增加UIViewAnimationOptionAllowUserInteraction常量。
+__在动画过程中，用户的交互行为被暂时禁止了。如果你需要让用户在此过程中与视图交互，则需要在选项(option)参数中增加UIViewAnimationOptionAllowUserInteraction常量。__  
 ##Parameters	
 ###duration
 The total duration of the animations, measured in seconds. If you specify a negative value or 0, the changes are made without animating them.
