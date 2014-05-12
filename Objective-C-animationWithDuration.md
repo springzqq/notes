@@ -1,6 +1,12 @@
 #官方说明
 > Description	
-+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion
+```objc
++ (void)animateWithDuration:(NSTimeInterval)duration  
+                      delay:(NSTimeInterval)delay    
+                    options:(UIViewAnimationOptions)options  
+                 animations:(void (^)(void))animations 
+                 completion:(void (^)(BOOL finished))completion
+```
 Animate changes to one or more views using the specified duration, delay, options, and completion handler.
 This method initiates a set of animations to perform on the view. The block object in the animations parameter contains the code for animating the properties of one or more views.
 During an animation, user interactions are temporarily disabled for the views being animated. (Prior to iOS 5, user interactions are disabled for the entire application.) If you want users to be able to interact with the views, include the UIViewAnimationOptionAllowUserInteraction constant in the options parameter.
