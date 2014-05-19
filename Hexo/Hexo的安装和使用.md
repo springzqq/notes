@@ -33,6 +33,7 @@
 ##添加主题
 https://github.com/tommy351/hexo/wiki/Themes
 目录下列出了各种主题及安装方法，安装后，在_config.yml文件中更改相应的主题文件。
+
 ||Themes||description||Install Commands||
 ||Landscape||Hexo2.4+默认主题||--||
 ||Light||历史版本Hexo的默认主题||git clone git://github.com/tommy351/hexo-theme-light.git themes/light||
