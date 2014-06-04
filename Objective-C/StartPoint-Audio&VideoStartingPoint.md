@@ -12,10 +12,15 @@
 
 2. 阅读**avTouch**示例代码，该项目展示了如何使用**AVAudioPlayer**类来播放声音；阅读**SpeakHere**项目，该项目战士了基本的录音和播放；阅读**Audio UI Sounds(SysSound)**项目，该项目展示了如何触发震动和提示音和用户接口音效。
 
-3. 下载**AddMusic**
+3. 下载**AddMusic**示例代码，该项目展示了怎样将ipod library播放库添加到你自己的app中。
+
+4. 阅读**MPVolumeView Class Reference**，学习如何快速添加AirPlay功能到你自己的app中。
 
 阅读以下资源以熟悉iOS视频开发：
-0. 
+0. 阅读**Multimedia Programming Guide**中"Using Video"一节以对iOS设备中得视频录制和播放有一个基本的了解。
+1. 阅读**MoviePlayer**示例代码，该项目展示了强大的**MPMoviePlayerController**类。此类由于播放本地或者流视频；阅读**Using UIImagePickerController to Select Picture and Take Photos**项目，该项目展示了如何使用**UIKit**框架进行简单的视频和图像捕获。
+2. 
+
 
 
 
