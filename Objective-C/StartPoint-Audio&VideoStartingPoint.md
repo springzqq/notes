@@ -7,8 +7,11 @@
 
 #开始和运行(Get Up and Running)
 阅读以下资源以熟悉iOS音频开发：
+
 1. 阅读**Multimedia Programming Guide**中"Using Audio"一节以学习iOS设备中的音频开发。确保理解了在"The Basics:Audio Codecs, Supported Audio Formats, and Audio Sessions"一节中介绍的audio session相关对象。
+
 2. 阅读**avTouch**示例代码，该项目展示了如何使用**AVAudioPlayer**类来播放声音；阅读**SpeakHere**项目，该项目战士了基本的录音和播放；阅读**Audio UI Sounds(SysSound)**项目，该项目展示了如何触发震动和提示音和用户接口音效。
+
 3. 下载**AddMusic**
 
 阅读以下资源以熟悉iOS视频开发：
